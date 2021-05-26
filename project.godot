@@ -11,8 +11,12 @@ config_version=4
 [application]
 
 config/name="Rock Love Gold"
+config/description="It is a game about love with Rocks."
 run/main_scene="res://Menu/Main Menu.tscn"
+boot_splash/image="res://splash.png"
+boot_splash/bg_color=Color( 0.12549, 0.145098, 0.192157, 1 )
 config/icon="res://icon.png"
+config/windows_native_icon="res://Rock.ico"
 
 [autoload]
 
