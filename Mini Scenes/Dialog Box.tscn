@@ -1,0 +1,78 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scripts/Dialog Box.gd" type="Script" id=1]
+[ext_resource path="res://Mini Scenes/Dialog Box.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 60
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 40
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "Dialog Box"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1600, 130 ), Vector2( 1600, 195 ) ]
+}
+
+[node name="Dialog Box" type="ColorRect"]
+margin_left = 128.0
+margin_top = 768.0
+margin_right = 1792.0
+margin_bottom = 1024.0
+color = Color( 0.160784, 0.160784, 0.160784, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Name" type="RichTextLabel" parent="."]
+margin_left = 32.0
+margin_right = 1632.0
+margin_bottom = 96.0
+custom_fonts/normal_font = SubResource( 1 )
+text = "Hallo"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="RichTextLabel" parent="."]
+margin_left = 32.0
+margin_top = 96.0
+margin_right = 1632.0
+margin_bottom = 224.0
+custom_fonts/normal_font = SubResource( 2 )
+text = "Hallo"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Indicator" type="Polygon2D" parent="."]
+position = Vector2( 1600, 130 )
+polygon = PoolVector2Array( -32, -4, 0, 60, 32, -4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Indicator"]
+"anims/Dialog Box" = SubResource( 3 )
+
+[node name="Potrait" type="Sprite" parent="."]
+position = Vector2( 64, -32 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.05
+autostart = true
