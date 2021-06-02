@@ -38,5 +38,8 @@ func apply_friction(amount):
 		motion = Vector2.ZERO
 
 func apply_movement(acceleration):
+	if MAX_SPEED != 0:
+		if !$Walk.playing:
+			$Walk.play()
 	motion += acceleration
 	motion = motion.clamped(MAX_SPEED)

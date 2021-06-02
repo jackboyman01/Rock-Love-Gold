@@ -10,11 +10,13 @@ func _ready():
 
 func play_menu_music():
 	$Music.stream = menu_music
+	$Music.set_volume_db(0)
 	$Music.play()
 	menu_music_play = true
 	game_music_play = false
 
 func play_game_music():
 	$Music.stream = game_music
+	$Music.set_volume_db(-20)
 	$Music.play()
 	menu_music_play = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/World.gd" type="Script" id=1]
 [ext_resource path="res://fade_in/FadeIn.tscn" type="PackedScene" id=2]
@@ -7,6 +7,9 @@
 [ext_resource path="res://Mini Scenes/Rock.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/Wall_End.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Wall_Middle.png" type="Texture" id=7]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 320, 32 )
 
 [node name="World" type="Node2D"]
 script = ExtResource( 1 )
@@ -61,7 +64,7 @@ position = Vector2( 1056, -2400 )
 position = Vector2( 1056, -4544 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1056, 288 )
+position = Vector2( 1056, 96 )
 
 [node name="FadeIn" parent="Player" instance=ExtResource( 2 )]
 visible = false
@@ -79,6 +82,13 @@ size_flags_vertical = 3
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls"]
 polygon = PoolVector2Array( 736, 1024, 736, -5344, 1376, -5344, 1376, 1024, 1632, 1024, 1632, -5632, 480, -5632, 480, 1280, 1360, 1024 )
 
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( 1056, -4816 )
+
+[node name="Collision" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 1 )
+
 [connection signal="Gold" from="Player" to="." method="_on_Player_Gold"]
 [connection signal="Rock" from="Player" to="." method="_on_Player_Rock"]
 [connection signal="fade_finished" from="Player/FadeIn" to="." method="_on_FadeIn_fade_finished"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

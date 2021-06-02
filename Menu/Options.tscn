@@ -51,15 +51,16 @@ margin_right = 1152.0
 margin_bottom = 720.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
+custom_constants/separation = 20
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Title" type="Label" parent="VBoxContainer"]
-margin_top = 50.0
+margin_top = 26.0
 margin_right = 300.0
-margin_bottom = 105.0
+margin_bottom = 81.0
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color_shadow = Color( 0.00784314, 0.0235294, 1, 1 )
 custom_constants/shadow_offset_x = 0
@@ -70,9 +71,9 @@ valign = 1
 uppercase = true
 
 [node name="HBoxContainer1" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 109.0
+margin_top = 101.0
 margin_right = 300.0
-margin_bottom = 145.0
+margin_bottom = 137.0
 
 [node name="Music Sound" type="Label" parent="VBoxContainer/HBoxContainer1"]
 margin_right = 112.0
@@ -93,9 +94,9 @@ __meta__ = {
 }
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 149.0
+margin_top = 157.0
 margin_right = 300.0
-margin_bottom = 185.0
+margin_bottom = 193.0
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -123,9 +124,9 @@ __meta__ = {
 }
 
 [node name="Button" type="Button" parent="VBoxContainer"]
-margin_top = 189.0
+margin_top = 213.0
 margin_right = 300.0
-margin_bottom = 250.0
+margin_bottom = 274.0
 custom_fonts/font = ExtResource( 1 )
 text = "BACK"
 __meta__ = {

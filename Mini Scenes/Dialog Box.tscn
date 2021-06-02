@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Dialog Box.gd" type="Script" id=1]
+[ext_resource path="res://Audio/Talk.wav" type="AudioStream" id=2]
 [ext_resource path="res://Mini Scenes/Dialog Box.ttf" type="DynamicFontData" id=3]
 
 [sub_resource type="DynamicFont" id=1]
@@ -76,3 +77,7 @@ position = Vector2( 64, -32 )
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.05
 autostart = true
+
+[node name="Talking" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+bus = "Sound"

@@ -1,7 +1,7 @@
 extends ColorRect
 
 export var dialogpath = ""
-export(float) var textspeed = 0.05
+export(float) var textspeed = 0.1
 
 var dialog
 
@@ -15,6 +15,8 @@ func _ready():
 	nextPhrase()
 
 func _process(_delta):
+	if finished:
+		$Talking.stop()
 	$Indicator.visible = finished
 	$Indicator/AnimationPlayer.play("Dialog Box")
 	if Input.is_action_just_pressed("ui_next"):
@@ -40,7 +42,7 @@ func getDialog() -> Array:
 func nextPhrase() -> void:
 	if phrasenum >= len(dialog):
 		queue_free()
-		get_node("/root/World").dialogbox_num -= 1 
+		get_node("/root/World").dialogbox_num -= 1
 		return
 	
 	finished = false
@@ -59,7 +61,7 @@ func nextPhrase() -> void:
 	
 	while $Text.visible_characters < len($Text.text):
 		$Text.visible_characters += 1
-		
+		$Talking.play()
 		$Timer.start()
 		yield($Timer, "timeout")
 	
